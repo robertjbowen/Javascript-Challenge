@@ -2,9 +2,10 @@
 var tableData = data;
 
 // place holder to control date until html input and button figured out
-var datetime = "1/14/2010"
+var datetime = "1/10/2010"
 var filterDate = datetime
-
+//var filterDate = document.getElementById('datetime').value;
+//console.log(filterDate);
 // YOUR CODE HERE!
 
 
