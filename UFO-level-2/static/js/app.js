@@ -1,13 +1,7 @@
 // from data.js
 var tableData = data;
-/*
-var filterDate = document.getElementById('datetime').value;                             // reads the data value input by the user in the field in the filters list group
-var filterCity = document.getElementById('city').value;                                 // reads the data value input by the user in the field in the filters list group
-var filterState = document.getElementById('state').value;                               // reads the data value input by the user in the field in the filters list group
-var filterCountry = document.getElementById('country').value;                           // reads the data value input by the user in the field in the filters list group
-var filterShape = document.getElementById('shape').value;                               // reads the data value input by the user in the field in the filters list group
-console.log(filterDate + ' ' + filterCity + ' ' + filterState + ' ' + filterCountry + ' ' + filterShape);     // displays the data value in the console 
-*/
+var filters = ['datetime','city','state','country','shape']
+
 // YOUR CODE HERE!
 // Get a reference to the table body
 var tbody = d3.select("tbody");
@@ -27,72 +21,51 @@ function buildTable(dataArray) {
   });
 }
 
-buildTable(tableData);
+buildTable(tableData);                                        // calls the function to build the new output table 
 
 // Create event handlers 
-button.on("click", filterTable);                            // calls the filterTable function when a button click event occurs
+button.on("click", filterTable);                              // calls the filterTable function when a button click event occurs
 
-//filters = {'datetime': encounter.datetime,'city': encounter.city,'state': encounter.state,'country': encounter.country,'shape': encounter.shape};
-// Function called by button click to filter tableData by user input date
+// Function called by button click to filter tableData by user input values
 function filterTable (encounter) {
 
-  tbody.text('');                                                                          // clears the contents of the tbody variable
-  // var tableArray = tableData;                                                                            
-  // forEach filter in filters
-  // console.log(filter)
-  var filterDate = document.getElementById('datetime').value;                             // reads the data value input by the user in the field in the filters list group
-  var filterCity = document.getElementById('city').value;                                 // reads the data value input by the user in the field in the filters list group
-  var filterState = document.getElementById('state').value;                               // reads the data value input by the user in the field in the filters list group
-  var filterCountry = document.getElementById('country').value;                           // reads the data value input by the user in the field in the filters list group
-  var filterShape = document.getElementById('shape').value;                               // reads the data value input by the user in the field in the filters list group
-  console.log(filterDate + ' ' + filterCity + ' ' + filterState + ' ' + filterCountry + ' ' + filterShape);     // displays the data value in the console 
+  tbody.text('');                                             // clears the contents of the tbody variable
+  var filteredArray = tableData;
 
-  if (filterDate === '') {
-    var filteredDate = tableData;
-    console.log('No Date Input');
-    console.log(filteredDate)
-  }
-  else  {
-    var filteredDate = tableData.filter(encounter => encounter.datetime === filterDate);   // iterates through each object in the tableData array and returns only the objects with the same datetime as the search criteria
-    console.log(filteredDate);                                                             // displays the filtered array in the console
-  }
+  filters.forEach((filter) => {                               // loop to check each filter type and filter the array
+    console.log(filter)
+
+    var inputValue = document.getElementById(filter).value;   // reads the data value input by the user in the field in the filters list group
+    console.log('The user input value is: ', inputValue);
+
+    if (inputValue === '') {                                  // checks to see if a value was entered for the current filter
+      console.log('No input for: ', filter);                  // if no input sends a message to the console
+      console.log(filteredArray)                              // displays the current array to the console
+    }
+    else  {
+      var filteredOutput = filteredArray.filter(encounter => encounter[filter] === inputValue);   // iterates through each object in the filtered array and returns only the objects with the same filter value as the search criteria
+      filteredArray = filteredOutput                                                              // replaces the old array with the newly filtered output
+      console.log(filteredArray);                                                                 // displays the filtered array in the console
+    }
+  })
   
-  if (filterCity === '') {
-    var filteredCity = filteredDate;
-    console.log('No City Input');
-    console.log(filteredCity)
-  }
-  else  {
-    var filteredCity = filteredDate.filter(encounter => encounter.city === filterCity);   // iterates through each object in the tableData array and returns only the objects with the same datetime as the search criteria
-    console.log(filteredCity);                                                             // displays the filtered array in the console
-  }
-
-  if (filterState === '') {
-    var filteredState = filteredCity;
-    console.log('No State Input');
-  }
-  else  {
-    var filteredState = filteredCity.filter(encounter => encounter.state === filterState);   // iterates through each object in the tableData array and returns only the objects with the same datetime as the search criteria
-    console.log(filteredState);                                                             // displays the filtered array in the console
-  }
-
-  if (filterCountry === '') {
-    var filteredCountry = filteredState;
-    console.log('No Country Input');
-  }
-  else  {
-    var filteredCountry = filteredState.filter(encounter => encounter.country === filterCountry);   // iterates through each object in the tableData array and returns only the objects with the same datetime as the search criteria
-    console.log(filteredCity);                                                             // displays the filtered array in the console
-  }
-
-  if (filterShape === '') {
-    var filteredShape = filteredCountry;
-    console.log('No Shape Input');
-  }
-  else  {
-    var filteredShape = filteredCountry.filter(encounter => encounter.shape === filterShape);   // iterates through each object in the tableData array and returns only the objects with the same datetime as the search criteria
-    console.log(filteredShape);                                                             // displays the filtered array in the console
-  }
-
-  buildTable(filteredShape);
+  buildTable(filteredArray);                                 // calls the function to build the new output table                                     
 }
+/*
+console.log('Input Text: ', inputText);
+
+var ages = filteredData.map(person => person.age);
+
+ var list = d3.select(".summary");
+
+  // remove any children from the list to
+  list.html("");
+
+  // append stats to the list
+  list.append("li").text(`Mean: ${mean}`);
+  list.append("li").text(`Median: ${median}`);
+  list.append("li").text(`Mode: ${mode}`);
+  list.append("li").text(`Variance: ${variance}`);
+  list.append("li").text(`Standard Deviation: ${standardDeviation}`);
+};
+*/
