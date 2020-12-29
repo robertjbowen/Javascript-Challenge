@@ -8,7 +8,7 @@ var filterBody = document.getElementById('filters');          // Get a reference
 var button = d3.select("#filter-btn");                        // Get a refernce to the button to call the filterTable function
 
 // Event Handlers 
-buildFilters(tableData, initFilter);                                      // calls the buildFilters function to create the select lists to filter the dataset
+buildFilters(tableData, initFilter);                          // calls the buildFilters function to create the select lists to filter the dataset
 button.on("click", filterTable);                              // calls the filterTable function when a button click event occurs
 document.getElementById("filters").addEventListener("change", onChange);
 
@@ -25,7 +25,7 @@ function filterData (filteredArray) {
   filters.forEach((filter) => {                               // loop to check each filter type and filter the array
     let inputValue = document.getElementById(filter).value;   // reads the data value input by the user in the field in the filters list group
     if (inputValue === '') {                                  // checks to see if a value was entered for the current filter
-      console.log('No user input for: ', filter);                  // if no input sends a message to the console
+      console.log('No user input for: ', filter);             // if no input sends a message to the console
       console.log(filteredArray)                              // displays the current array to the console
     }
     else  {
@@ -80,7 +80,7 @@ function buildFilters (inputArray, inputVals) {
     
       uniqueVals.forEach((object) => {                        // loops through each unique value in the list
         let option = document.createElement("option");        // creates an option to select the value
-        option.id = filter + object;                                // assigns the value to the option
+        option.id = filter + object;                          // assigns the value to the option
         option.text = object;                                 // creates the display text for the option
         if (object == test) {
           option.selected = true;
