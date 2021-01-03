@@ -1,5 +1,9 @@
 # Javascript-Challenge
 
+<p>
+    <img src="https://github.com/robertjbowen/Javascript-Challenge/blob/main/images/Level2.png"/>
+</p>
+
 ***
 
 The purpose of this challenge is to create JavaScript code to import a dataset, create lists to enable user input, provide list filtering functionality and generate html code to display the outputs through an html web interface based on user event triggers.  
