@@ -38,7 +38,7 @@ The purpose of this challenge is to create JavaScript code to import a dataset, 
 ## Level-1:
 
 <p>
-    <img src="https://github.com/robertjbowen/web-scraping-challenge/blob/main/images/scrapeNews.png"/>
+    <img src="https://github.com/robertjbowen/Javascript-Challenge/blob/main/images/Level1.png"/>
     <br>
     <em>UFO-Level-1 Output</em>
 </p>
