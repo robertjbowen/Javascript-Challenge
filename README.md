@@ -61,7 +61,8 @@ The two reference variables rely on the D3.select tool to function, requiring th
 
 2) The Level-1 app.js file relies on two functions: buildTable and filterTable 
 
-The buildTable function  - is set to run immediately when the site is initiated using the full unfiltered tableData array. 
+### The buildTable function
+- is set to run immediately when the site is initiated using the full unfiltered tableData array. 
 <p>
     <img src="https://github.com/robertjbowen/Javascript-Challenge/blob/main/images/Level1CallBuildTable.png"/>
     <br>
@@ -76,7 +77,8 @@ It is also called by the filterTable function using the filtered data array as t
     <em>buildTable function</em>
 </p>
 
-The filterTable function - only runs when the user selects the 'Filter Table' button. The function begins by gathering the date value input by the user using the document.getElementById('datetime') operation saves it to a varaibl called 'filterDate'and displays the retrieved value to the console. The function then iterates through each object in the tableData array and returns only the objects with the same datetime as the search criteria, saving the array to a variable called 'filteredData'. Finally, the function then clears the contents of the tbody varaiable (erasing the currently displayed output table) and then calls the buildTable function, passing the filteredData array as the value to be displayed.
+### The filterTable function
+- only runs when the user selects the 'Filter Table' button. The function begins by gathering the date value input by the user using the document.getElementById('datetime') operation saves it to a varaibl called 'filterDate'and displays the retrieved value to the console. The function then iterates through each object in the tableData array and returns only the objects with the same datetime as the search criteria, saving the array to a variable called 'filteredData'. Finally, the function then clears the contents of the tbody varaiable (erasing the currently displayed output table) and then calls the buildTable function, passing the filteredData array as the value to be displayed.
 
 <p>
     <img src="https://github.com/robertjbowen/Javascript-Challenge/blob/main/images/Level1filterTable.png"/>
