@@ -62,14 +62,15 @@ The two reference variables rely on the D3.select tool to function, requiring th
 2) The Level-1 app.js file relies on two functions: buildTable and filterTable 
 
 ### The buildTable function
-- is set to run immediately when the site is initiated using the full unfiltered tableData array. 
+- Set to run immediately when the site is initiated using the full unfiltered tableData array. 
 <p>
     <img src="https://github.com/robertjbowen/Javascript-Challenge/blob/main/images/Level1CallBuildTable.png"/>
     <br>
     <em>Initial buildTable function call</em>
 </p>
 
-It is also called by the filterTable function using the filtered data array as the input. The function iterates through each item in the array (called an encounter). Iit creates a new table row variable which it appends to the html tbody reference. Next it iterates through each attribute for the encounter and adds the attribute value to a table data cell as text, which it then appends to the table row.
+- Also called by the filterTable function using the filtered data array as the input. 
+- The function iterates through each item in the array (called an encounter). It creates a new table row variable which it appends to the html tbody reference. Next it iterates through each attribute for the encounter and adds the attribute value to a table data cell as text, which it then appends to the table row.
 
 <p>
     <img src="https://github.com/robertjbowen/Javascript-Challenge/blob/main/images/Level1buildTable.png"/>
@@ -78,7 +79,8 @@ It is also called by the filterTable function using the filtered data array as t
 </p>
 
 ### The filterTable function
-- only runs when the user selects the 'Filter Table' button. The function begins by gathering the date value input by the user using the document.getElementById('datetime') operation saves it to a varaibl called 'filterDate'and displays the retrieved value to the console. The function then iterates through each object in the tableData array and returns only the objects with the same datetime as the search criteria, saving the array to a variable called 'filteredData'. Finally, the function then clears the contents of the tbody varaiable (erasing the currently displayed output table) and then calls the buildTable function, passing the filteredData array as the value to be displayed.
+- Only runs when the user selects the 'Filter Table' button. 
+- The function begins by gathering the date value input by the user using the document.getElementById('datetime') operation saves it to a varaibl called 'filterDate'and displays the retrieved value to the console. The function then iterates through each object in the tableData array and returns only the objects with the same datetime as the search criteria, saving the array to a variable called 'filteredData'. Finally, the function then clears the contents of the tbody varaiable (erasing the currently displayed output table) and then calls the buildTable function, passing the filteredData array as the value to be displayed.
 
 <p>
     <img src="https://github.com/robertjbowen/Javascript-Challenge/blob/main/images/Level1filterTable.png"/>
