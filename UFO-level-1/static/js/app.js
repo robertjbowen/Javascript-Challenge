@@ -29,9 +29,9 @@ button.on("click", filterTable);                            // calls the filterT
 function filterTable (encounter) {
 
   var filterDate = document.getElementById('datetime').value;                            // reads the data value input by the user in the field in the filters list group
-  tbody.text('');                                                                        // clears the contents of the tbody variable
   console.log(filterDate);                                                               // displays the data value in the console 
   var filteredData = tableData.filter(encounter => encounter.datetime === filterDate);   // iterates through each object in the tableData array and returns only the objects with the same datetime as the search criteria
   console.log(filteredData);                                                             // displays the filtered array in the console
+  tbody.text('');                                                                        // clears the contents of the tbody variable
   buildTable(filteredData);
 }
