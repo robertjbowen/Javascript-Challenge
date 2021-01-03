@@ -114,18 +114,18 @@ The two reference variables rely on the D3.select tool to function, requiring th
     <em>Declaration of reference variables</em>
 </p>
 
-2) There is a second event handler that listens for any user inputs to any of the filter options and runs a function called "onChange". This enables the javascript to create reactive filters which adjust the filter options based on values the user has selected for other filters (If the user selects the state of Kentucky, the cities of Fresno and El Cajon (which are in California are no longer available as options)). 
+2) There is a second event handler that listens for any user inputs to any of the filter options and runs a function called "onChange". This enables the javascript to create reactive filters which adjust the filter options based on values the user has selected for other filters (If the user selects the country of Canada, only cities in Canada are available as options). 
 
 <p>
     <img src="https://github.com/robertjbowen/Javascript-Challenge/blob/main/images/Level2eventHandler.png"/>
     <br>
-    <em>filterTable event handler</em>
+    <em>onChange and filterTable event handlers</em>
 </p>
 
 <p>
     <img src="https://github.com/robertjbowen/Javascript-Challenge/blob/main/images/Level2reactivefilters.png"/>
     <br>
-    <em>filterTable event handler</em>
+    <em>filterTable output showing reactive filtering of filter select lists</em>
 </p>
 
 The envent handler for the 'Filter Table' button is not changed.
