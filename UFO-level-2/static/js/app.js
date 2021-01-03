@@ -55,10 +55,10 @@ function buildFilters (inputArray, inputVals) {
   
   console.log(filters)
   filters.forEach((filter) => {                               // loops through all filter options
-    let test = "";
-    inputVals.forEach((set) => {
-      if (set[0] === filter) {
-        test = set[1];
+    let test = "";                                            // creates a blank variable called test
+    inputVals.forEach((set) => {                              // checks for any existing user input values for that filter
+      if (set[0] === filter) {                                
+        test = set[1];                                        // sets test equal to the existing filter value
       };
     });
     let vals = [];
@@ -82,8 +82,8 @@ function buildFilters (inputArray, inputVals) {
         let option = document.createElement("option");        // creates an option to select the value
         option.id = filter + object;                          // assigns the value to the option
         option.text = object;                                 // creates the display text for the option
-        if (object == test) {
-          option.selected = true;
+        if (object == test) {                                 // checks if the object value is the same as the existing user input value
+          option.selected = true;                             // if the same, sets the object value as the selected value for that filter 
         };                                
         selectList.appendChild(option);                       // appends the option to the select list
       });
@@ -92,17 +92,18 @@ function buildFilters (inputArray, inputVals) {
   })
 }
 
+// Function called to save all of the current user inputs, delete the old select list and then recreate the select lists with the retained user input values
 function onChange() {
 
-  let filterArray = filterData (tableData);
-  let userInputs = []
-  filters.forEach((filter) => {
-    let userInput = document.getElementById(filter).value;
-    let userVals = [filter, userInput];
-    userInputs.push(userVals);
-    let elem = document.getElementById(filter + "list");
-    filterBody.removeChild(elem);
+  let filterArray = filterData (tableData);                   // runs the filterData function
+  let userInputs = []                                         // creates a blank list to hold the user input values
+  filters.forEach((filter) => {                               // loops through each filter type
+    let userInput = document.getElementById(filter).value;    // gathers the user input value
+    let userVals = [filter, userInput];                       // saves the filter type and existing user value for that filter to a list
+    userInputs.push(userVals);                                // appends the list of values to the list of user input values
+    let elem = document.getElementById(filter + "list");      // finds the element in the html list with the current filter id
+    filterBody.removeChild(elem);                             // removes the current element from the display list (erases the old list)  
   });
   console.log(userInputs)
-  buildFilters (filterArray, userInputs)
+  buildFilters (filterArray, userInputs)                      // runs the buildFilters function to recreate the select lists while retaiing the previous user inputs   
 }
